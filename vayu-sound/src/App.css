@@ -1,0 +1,43 @@
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+@media screen and (max-width: 600px) {
+  .hero-cta-flex {
+    flex-direction: column;
+    gap: 2em;
+  }
+  .cta {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  .hero-cta-flex {
+    flex-direction: row;
+    gap: 2em;
+  }
+  .cta {
+    font-size: 2em;
+  }
+}
+
+.cta {
+  background-color: seashell;
+  color: black;
+}
+
+.cta :hover {
+  background-color: black;
+  color: white;
+}
+
+.tagline {
+  font-size: 1.5em;
+}
