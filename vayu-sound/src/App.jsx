@@ -23,22 +23,21 @@ export default function LandingPage() {
     <div className="w-screen h-screen overflow-x-hidden scroll-smooth">
       {/* Header */}
       <header className="fixed top-0 left-0 z-10 w-full flex justify-between items-center px-8 py-4 bg-black/50 backdrop-blur-md text-white">
-        <div className="header-logo">
+        <a href="#hero" className="header-logo cursor-pointer hover:opacity-75">
           <span className="vayu">
             va<span>̄</span>yu
           </span>
-        </div>
+        </a>
         <nav className="flex space-x-6 font-work-sans">
-          <Button variant="ghost" href="#quiz">
-            Quiz
-          </Button>
-          <Button variant="ghost" href="#about">
-            About
-          </Button>
+          <a href="#quiz">
+            <Button variant="ghost">Quiz</Button>
+          </a>
+          <a href="#about">
+            <Button variant="ghost">About</Button>
+          </a>
         </nav>
       </header>
 
-      {/* Hero / Unicorn Embed */}
       {/* Hero / Unicorn Embed */}
       <section
         id="hero"
@@ -50,7 +49,7 @@ export default function LandingPage() {
           style={{ top: "15%" }}
         >
           <h1 className="font-taviraj text-white inset-0 flex  justify-center  z-20 drop-shadow-lg">
-            <span class="vayu">
+            <span className="vayu">
               va<span>̄</span>yu
             </span>
           </h1>
@@ -60,11 +59,11 @@ export default function LandingPage() {
         </div>
 
         <p className="absolute font-work-sans tagline justify-center text-pink-50 mt-40">
-          Handwound guitar pickups. Made in Toronto.
+          Custom, handwound guitar pickups.
         </p>
 
         <div
-          className="hero-cta-flex flex flex-row justify-center absolute gap-10"
+          className="hero-cta-flex flex flex-row justify-center items-center absolute gap-10"
           style={{ bottom: "25%" }}
         >
           <a href="#quiz">
