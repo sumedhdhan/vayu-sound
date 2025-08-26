@@ -69,7 +69,7 @@ export default function LandingPage() {
         >
           <a href="#quiz">
             <Button className="text-white font-work-sans h-14 cta hover:opacity-75 hover:text-white">
-              Take the quiz
+              Find your tone
             </Button>
           </a>
           <a href="#about">
