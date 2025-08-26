@@ -23,14 +23,18 @@ export default function LandingPage() {
     <div className="w-screen h-screen overflow-x-hidden scroll-smooth">
       {/* Header */}
       <header className="fixed top-0 left-0 z-10 w-full flex justify-between items-center px-8 py-4 bg-black/50 backdrop-blur-md text-white">
-        <div className="text-xl font-bold">Vayu Sound</div>
-        <nav className="flex space-x-6">
-          <a href="#quiz" className="hover:underline">
+        <div className="header-logo">
+          <span className="vayu">
+            va<span>̄</span>yu
+          </span>
+        </div>
+        <nav className="flex space-x-6 font-work-sans">
+          <Button variant="ghost" href="#quiz">
             Quiz
-          </a>
-          <a href="#about" className="hover:underline">
+          </Button>
+          <Button variant="ghost" href="#about">
             About
-          </a>
+          </Button>
         </nav>
       </header>
 
@@ -43,36 +47,41 @@ export default function LandingPage() {
         {/* Centered header text */}
         <div
           className="flex flex-col absolute items-center justify-center"
-          style={{ top: "10%" }}
+          style={{ top: "15%" }}
         >
           <h1 className="font-taviraj text-white inset-0 flex  justify-center  z-20 drop-shadow-lg">
-            vayu
+            <span class="vayu">
+              va<span>̄</span>yu
+            </span>
           </h1>
           <h2 className=" inset-0 flex self-end  text-white font-overpass-mono z-20 drop-shadow-l tracking-widest">
             sound
           </h2>
         </div>
 
-        <p className="absolute font-work-sans tagline justify-center items-center text-white mt-20">
+        <p className="absolute font-work-sans tagline justify-center text-pink-50 mt-40">
           Handwound guitar pickups. Made in Toronto.
         </p>
 
         <div
           className="hero-cta-flex flex flex-row justify-center absolute gap-10"
-          style={{ bottom: "30%" }}
+          style={{ bottom: "25%" }}
         >
-          <Button className="text-white font-overpass-mono h-14  z-20 cta hover:bg-black hover:text-white">
-            Take the quiz
-          </Button>
-
-          <Button className="text-white font-overpass-mono h-14  z-20 cta hover:bg-black hover:text-white">
-            About us
-          </Button>
+          <a href="#quiz">
+            <Button className="text-white font-work-sans h-14 cta hover:opacity-75 hover:text-white">
+              Take the quiz
+            </Button>
+          </a>
+          <a href="#about">
+            <Button className="text-white font-work-sans h-14 cta hover:opacity-75 hover:text-white">
+              About us
+            </Button>
+          </a>
         </div>
 
         <div
           data-us-project="qq6jK4OOsZqYtiI9bRnr"
-          style={{ width: "100%", height: "95%" }}
+          style={{ width: "100%", height: "100%" }}
         ></div>
       </section>
 
