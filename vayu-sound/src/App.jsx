@@ -3,6 +3,37 @@
 import { useEffect } from "react";
 import { Button } from "./components/ui/button";
 import "./App.css";
+import PickupAnimation from "./components/ui/animations/pickup-animation";
+import ChatTypingAnimation from "./components/ui/animations/chat-typing-animation";
+
+const valueProps = [
+  {
+    title: "Crafted by Hand",
+    description:
+      "Each pickup is meticulously handwound, ensuring a unique tonal character with unmatched precision.",
+
+    animation: <PickupAnimation />,
+  },
+  {
+    title: "Inspired by Tradition",
+    description:
+      "Rooted in the golden era of guitar sound, blending vintage warmth with modern innovation.",
+    animation: <ChatTypingAnimation />,
+  },
+  {
+    title: "Tone for Every Player",
+    description:
+      "Designed to suit diverse playing styles, from soulful blues to heavy rock and experimental sounds.",
+    animation: null,
+  },
+  {
+    title: "Sustainable Craft",
+    description:
+      "Ethically sourced materials and eco-conscious production for a sound that respects the earth.",
+    animation: null,
+  },
+];
+
 export default function LandingPage() {
   useEffect(() => {
     if (!window.UnicornStudio) {
@@ -41,7 +72,7 @@ export default function LandingPage() {
       {/* Hero / Unicorn Embed */}
       <section
         id="hero"
-        className="h-screen w-full relative flex items-center justify-center"
+        className="h-screen w-full relative flex items-center justify-center bg-gradient-to-b from-transparen to-black"
       >
         {/* Centered header text */}
         <div
@@ -87,11 +118,13 @@ export default function LandingPage() {
       {/* Quiz Section */}
       <section
         id="quiz"
-        className="h-screen flex items-center justify-center bg-gradient-to-b from-purple-700 to-indigo-900 text-white"
+        className="h-screen flex items-center justify-center bg-gradient-to-b from-black via-purple-700 to-black text-white"
       >
         <div className="max-w-2xl text-center px-6">
-          <h2 className="text-4xl font-bold mb-4">Find Your Sound</h2>
-          <p className="text-lg mb-6">
+          <h2 className="text-5xl mb-12 tracking-wide drop-shadow-md font-taviraj">
+            Find your sound
+          </h2>
+          <p className="text-lg mb-6 font-work-sans">
             Take our short quiz to discover your personalized sound experience.
           </p>
           <button className="px-6 py-3 bg-white text-black rounded-xl font-semibold shadow-lg hover:bg-gray-200 transition">
@@ -103,15 +136,37 @@ export default function LandingPage() {
       {/* About Section */}
       <section
         id="about"
-        className="h-screen flex items-center justify-center bg-black text-white"
+        className="h-screen flex items-center justify-center bg-gradient-to-b from-black to-blue-400 text-white px-8 animate-fadeIn"
       >
-        <div className="max-w-2xl text-center px-6">
-          <h2 className="text-4xl font-bold mb-4">About Vayu Sound</h2>
-          <p className="text-lg opacity-80">
-            Vayu Sound blends technology and creativity to craft immersive sonic
-            experiences. Our mission is to connect listeners to new dimensions
-            of sound.
-          </p>
+        <div className="max-w-5xl w-full text-center font-work-sans">
+          <h2 className="text-5xl mb-12 tracking-wide drop-shadow-md font-taviraj">
+            About Vāyu
+          </h2>
+          <p></p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {valueProps.map((item, idx) => (
+              <div
+                key={idx}
+                className="flex flex-col justify-around p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg min-h-[320px]"
+              >
+                <div>
+                  <h3 className="text-2xl font-semibold mb-2">{item.title}</h3>
+                  <p className="opacity-80 text-sm">{item.description}</p>
+                </div>
+                <div>{item.animation}</div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 text-sm opacity-80 w-2/3 items-center justify-center mx-auto">
+            <p>
+              Vāyu (Sanskrit for "wind") is a boutique guitar pickup shop based
+              in Toronto, Ontario. Founded by Sumedh Dhanvanthry, Vāyu
+              specializes in custom, handwound pickups that capture the essence
+              of your unique sound. With a passion for tone and craftsmanship,
+              Vayu offers a personalized experience to help you find the perfect
+              pickups for your guitar.
+            </p>
+          </div>
         </div>
       </section>
     </div>
