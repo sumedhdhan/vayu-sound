@@ -225,7 +225,7 @@ export default function PickupCarousel() {
                     height={40}
                     fill="url(#shimmer-humbucker)"
                     initial={{ x: -80 }}
-                    animate={{ x: 250 }}
+                    animate={{ x: 295 }}
                     transition={{ duration: 2, ease: "easeInOut" }}
                     onAnimationComplete={handleShimmerComplete}
                   />
@@ -236,7 +236,7 @@ export default function PickupCarousel() {
                     height={40}
                     fill="url(#shimmer-humbucker)"
                     initial={{ x: -80 }}
-                    animate={{ x: 250 }}
+                    animate={{ x: 300 }}
                     transition={{ duration: 2, ease: "easeInOut" }}
                   />
                 </>
@@ -248,7 +248,7 @@ export default function PickupCarousel() {
                   height={pickups[index].bodyHeight}
                   fill={pickups[index].shimmerFill}
                   initial={{ x: -80 }}
-                  animate={{ x: 250 }}
+                  animate={{ x: 300 }}
                   transition={{ duration: 2, ease: "easeInOut" }}
                   onAnimationComplete={handleShimmerComplete}
                 />

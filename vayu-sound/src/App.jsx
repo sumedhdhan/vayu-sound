@@ -17,7 +17,7 @@ const valueProps = [
   {
     title: "Inspired by Tradition",
     description:
-      "Rooted in the golden era of guitar sound, blending vintage warmth with modern innovation.",
+      "Our cutting-edge AI system provides you with a 100% custom pickup tailored to your tonal preferences and playing style.",
     animation: <ChatTypingAnimation />,
   },
   {
@@ -74,6 +74,14 @@ export default function LandingPage() {
         id="hero"
         className="h-screen w-full relative flex items-center justify-center bg-gradient-to-b from-transparen to-black"
       >
+        {/* Black gradient overlay for blending */}
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.3) 90%, rgba(0,0,0,1) 100%)",
+          }}
+        />
         {/* Centered header text */}
         <div
           className="flex flex-col absolute items-center justify-center"
@@ -147,11 +155,13 @@ export default function LandingPage() {
             {valueProps.map((item, idx) => (
               <div
                 key={idx}
-                className="flex flex-col justify-around p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg min-h-[320px]"
+                className="flex flex-col justify-around p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg min-h-[300px]"
               >
                 <div>
                   <h3 className="text-2xl font-semibold mb-2">{item.title}</h3>
-                  <p className="opacity-80 text-sm">{item.description}</p>
+                  <p className="opacity-80 text-sm w-4/5 text-center mx-auto">
+                    {item.description}
+                  </p>
                 </div>
                 <div>{item.animation}</div>
               </div>
