@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react";
 
 const prompts = [
-  "SRV but at bedroom-volume",
-  "Jimi Hendrix on a telecaster",
-  "John Mayer glassy cleans",
+  "SRV's biting bridge pickup tone",
   "Heavy riffs with clarity",
+  "Jimi Hendrix's punchy rhythm-lead sound",
+  "Gritty blues with a sweet top end",
+  "Clean and articulate jazz tones",
 ];
 
 export default function ChatTypingAnimation() {

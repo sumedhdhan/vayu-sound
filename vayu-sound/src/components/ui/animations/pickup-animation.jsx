@@ -7,24 +7,24 @@ export default function PickupCarousel() {
   const pickups = [
     {
       id: "single",
-      width: 220,
-      height: 120,
-      bodyHeight: 50,
-      bodyY: 20,
+      width: 300,
+      height: 160,
+      bodyHeight: 60,
+      bodyY: 25,
       maskId: "mask-single",
       clipId: "clip-single",
       svg: (
         <>
           <defs>
             <mask id="mask-single">
-              <rect width="220" height="120" fill="white" />
-              {[30, 62, 94, 126, 158, 190].map((cx) => (
-                <circle key={cx} cx={cx} cy="45" r="6" fill="black" />
+              <rect width="300" height="160" fill="white" />
+              {[41, 85, 129, 173, 217, 261].map((cx) => (
+                <circle key={cx} cx={cx} cy="55" r="8" fill="black" />
               ))}
             </mask>
 
             <clipPath id="clip-single">
-              <rect x="10" y="20" width="200" height="50" rx="30" />
+              <rect x="10" y="25" width="280" height="60" rx="40" />
             </clipPath>
 
             <linearGradient id="metal-gradient" x1="0" y1="0" x2="0" y2="1">
@@ -45,16 +45,16 @@ export default function PickupCarousel() {
 
           <rect
             x="10"
-            y="20"
-            width="200"
-            height="50"
-            rx="30"
+            y="25"
+            width="280"
+            height="60"
+            rx="40"
             fill="url(#metal-gradient)"
             mask="url(#mask-single)"
           />
           {/* Polepieces for single coil */}
-          {[30, 62, 94, 126, 158, 190].map((cx) => (
-            <circle key={cx} cx={cx} cy="45" r="6" fill="#7a7a7a" />
+          {[41, 85, 129, 173, 217, 261].map((cx) => (
+            <circle key={cx} cx={cx} cy="55" r="8" fill="#7a7a7a" />
           ))}
         </>
       ),
@@ -62,28 +62,28 @@ export default function PickupCarousel() {
     },
     {
       id: "humbucker",
-      width: 220,
-      height: 120,
-      bodyHeight: 40,
-      bodyY: 20,
+      width: 300,
+      height: 160,
+      bodyHeight: 50,
+      bodyY: 25,
       maskId: "mask-humbucker",
       clipId: "clip-humbucker",
       svg: (
         <>
           <defs>
             <mask id="mask-humbucker">
-              <rect width="220" height="120" fill="white" />
-              {[30, 62, 94, 126, 158, 190].map((cx) => (
-                <circle key={"t" + cx} cx={cx} cy="40" r="6" fill="black" />
+              <rect width="300" height="160" fill="white" />
+              {[41, 85, 129, 173, 217, 261].map((cx) => (
+                <circle key={"t" + cx} cx={cx} cy="50" r="8" fill="black" />
               ))}
-              {[30, 62, 94, 126, 158, 190].map((cx) => (
-                <circle key={"b" + cx} cx={cx} cy="80" r="6" fill="black" />
+              {[41, 85, 129, 173, 217, 261].map((cx) => (
+                <circle key={"b" + cx} cx={cx} cy="105" r="8" fill="black" />
               ))}
             </mask>
 
             <clipPath id="clip-humbucker">
-              <rect x="10" y="20" width="200" height="40" rx="20" />
-              <rect x="10" y="60" width="200" height="40" rx="20" />
+              <rect x="10" y="25" width="280" height="50" rx="25" />
+              <rect x="10" y="85" width="280" height="50" rx="25" />
             </clipPath>
 
             <linearGradient id="metal-humbucker" x1="0" y1="0" x2="0" y2="1">
@@ -104,29 +104,29 @@ export default function PickupCarousel() {
 
           <rect
             x="10"
-            y="20"
-            width="200"
-            height="40"
-            rx="20"
+            y="25"
+            width="280"
+            height="50"
+            rx="25"
             fill="url(#metal-humbucker)"
             mask="url(#mask-humbucker)"
           />
           {/* Polepieces for humbucker top row */}
-          {[30, 62, 94, 126, 158, 190].map((cx) => (
-            <circle key={"t" + cx} cx={cx} cy="40" r="6" fill="#7a7a7a" />
+          {[41, 85, 129, 173, 217, 261].map((cx) => (
+            <circle key={"t" + cx} cx={cx} cy="50" r="8" fill="#7a7a7a" />
           ))}
           <rect
             x="10"
-            y="60"
-            width="200"
-            height="40"
-            rx="20"
+            y="85"
+            width="280"
+            height="50"
+            rx="25"
             fill="url(#metal-humbucker)"
             mask="url(#mask-humbucker)"
           />
           {/* Polepieces for humbucker bottom row */}
-          {[30, 62, 94, 126, 158, 190].map((cx) => (
-            <circle key={"b" + cx} cx={cx} cy="80" r="6" fill="#7a7a7a" />
+          {[41, 85, 129, 173, 217, 261].map((cx) => (
+            <circle key={"b" + cx} cx={cx} cy="105" r="8" fill="#7a7a7a" />
           ))}
         </>
       ),
@@ -134,24 +134,24 @@ export default function PickupCarousel() {
     },
     {
       id: "covered",
-      width: 220,
-      height: 120,
-      bodyHeight: 90,
-      bodyY: 20,
+      width: 300,
+      height: 160,
+      bodyHeight: 120,
+      bodyY: 25,
       maskId: "mask-covered",
       clipId: "clip-covered",
       svg: (
         <>
           <defs>
             <mask id="mask-covered">
-              <rect width="220" height="120" fill="white" />
-              {[30, 62, 94, 126, 158, 190].map((cx) => (
-                <circle key={cx} cx={cx} cy="80" r="6" fill="black" />
+              <rect width="300" height="160" fill="white" />
+              {[41, 85, 129, 173, 217, 261].map((cx) => (
+                <circle key={cx} cx={cx} cy="105" r="8" fill="black" />
               ))}
             </mask>
 
             <clipPath id="clip-covered">
-              <rect x="10" y="20" width="200" height="90" rx="20" />
+              <rect x="10" y="25" width="280" height="120" rx="25" />
             </clipPath>
 
             <linearGradient id="metal-covered" x1="0" y1="0" x2="0" y2="1">
@@ -173,16 +173,16 @@ export default function PickupCarousel() {
 
           <rect
             x="10"
-            y="20"
-            width="200"
-            height="90"
-            rx="20"
+            y="25"
+            width="280"
+            height="120"
+            rx="25"
             fill="url(#metal-covered)"
             mask="url(#mask-covered)"
           />
           {/* Polepieces for covered pickup */}
-          {[30, 62, 94, 126, 158, 190].map((cx) => (
-            <circle key={cx} cx={cx} cy="80" r="6" fill="#7a7a7a" />
+          {[41, 85, 129, 173, 217, 261].map((cx) => (
+            <circle key={cx} cx={cx} cy="105" r="8" fill="#7a7a7a" />
           ))}
         </>
       ),
@@ -220,20 +220,20 @@ export default function PickupCarousel() {
                 <>
                   <motion.rect
                     x={-80}
-                    y={20}
+                    y={25}
                     width={80}
-                    height={40}
+                    height={50}
                     fill="url(#shimmer-humbucker)"
                     initial={{ x: -80 }}
-                    animate={{ x: 295 }}
+                    animate={{ x: 300 }}
                     transition={{ duration: 2, ease: "easeInOut" }}
                     onAnimationComplete={handleShimmerComplete}
                   />
                   <motion.rect
                     x={-80}
-                    y={60}
+                    y={85}
                     width={80}
-                    height={40}
+                    height={50}
                     fill="url(#shimmer-humbucker)"
                     initial={{ x: -80 }}
                     animate={{ x: 300 }}

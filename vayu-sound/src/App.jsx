@@ -5,31 +5,32 @@ import { Button } from "./components/ui/button";
 import "./App.css";
 import PickupAnimation from "./components/ui/animations/pickup-animation";
 import ChatTypingAnimation from "./components/ui/animations/chat-typing-animation";
+import OscilloscopeWave from "./components/ui/animations/sound-wave-animation";
 
 const valueProps = [
   {
     title: "Crafted by Hand",
     description:
-      "Each pickup is meticulously handwound, ensuring a unique tonal character with unmatched precision.",
+      "Each pickup is carefully handwound, ensuring a unique tonal character with unmatched precision.",
 
     animation: <PickupAnimation />,
   },
   {
-    title: "Inspired by Tradition",
+    title: "Cutting-Edge Tech",
     description:
-      "Our cutting-edge AI system provides you with a 100% custom pickup tailored to your tonal preferences and playing style.",
+      "Our AI-powered questionnaire provides you with a 100% custom pickup tailored to your tonal preferences and playing style.",
     animation: <ChatTypingAnimation />,
   },
   {
-    title: "Tone for Every Player",
+    title: "Science-Based Design",
     description:
-      "Designed to suit diverse playing styles, from soulful blues to heavy rock and experimental sounds.",
-    animation: null,
+      "Each pickup is engineered from proven principles to shape your ideal tone—from magnet strength to wire insulation.",
+    animation: <OscilloscopeWave />,
   },
   {
-    title: "Sustainable Craft",
+    title: "Exceptional Customer Service",
     description:
-      "Ethically sourced materials and eco-conscious production for a sound that respects the earth.",
+      "Every guitarist is unique, which is why we treat every order with the utmost care and precision.",
     animation: null,
   },
 ];
@@ -87,12 +88,12 @@ export default function LandingPage() {
           className="flex flex-col absolute items-center justify-center"
           style={{ top: "15%" }}
         >
-          <h1 className="font-taviraj text-white inset-0 flex  justify-center  z-20 drop-shadow-lg">
+          <h1 className="font-taviraj text-white inset-0 flex  justify-center drop-shadow-lg">
             <span className="vayu">
               va<span>̄</span>yu
             </span>
           </h1>
-          <h2 className=" inset-0 flex self-end  text-white font-overpass-mono z-20 drop-shadow-l tracking-widest">
+          <h2 className=" inset-0 flex self-end  text-white font-overpass-mono  drop-shadow-l tracking-widest">
             sound
           </h2>
         </div>
@@ -126,7 +127,7 @@ export default function LandingPage() {
       {/* Quiz Section */}
       <section
         id="quiz"
-        className="h-screen flex items-center justify-center bg-gradient-to-b from-black via-purple-700 to-black text-white"
+        className="h-screen flex items-center justify-center bg-gradient-to-b from-black via-gray-600 to-black text-white"
       >
         <div className="max-w-2xl text-center px-6">
           <h2 className="text-5xl mb-12 tracking-wide drop-shadow-md font-taviraj">
@@ -151,7 +152,7 @@ export default function LandingPage() {
             About Vāyu
           </h2>
           <p></p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {valueProps.map((item, idx) => (
               <div
                 key={idx}
