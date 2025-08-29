@@ -7,6 +7,7 @@ export default function OscilloscopeWave() {
   const [phase, setPhase] = useState(0);
   const [amp, setAmp] = useState(30); // amplitude
   const [pathData, setPathData] = useState("");
+  const [mouse, setMouse] = useState({ x: 150, y: 75, active: false });
 
   // Generate initial sine wave path on mount
   useEffect(() => {
@@ -30,18 +31,26 @@ export default function OscilloscopeWave() {
   useAnimationFrame((t) => {
     const time = t / 1000; // seconds
     const newPhase = time * 2; // speed of wave
-    const newAmp = 20 + 10 * Math.sin(time * 0.7); // smoothly varying amplitude
-    setPhase(newPhase);
-    setAmp(newAmp);
+    // Mouse X modulates amplitude, mouse Y modulates phase offset
+    const mouseAmp = mouse.active
+      ? 20 + 20 * (mouse.x / 300)
+      : 20 + 10 * Math.sin(time * 0.7);
+    const mousePhase = mouse.active ? newPhase + (mouse.y - 75) / 60 : newPhase;
+    setPhase(mousePhase);
+    setAmp(mouseAmp);
 
     const width = 300;
     const height = 150;
     const points = [];
     for (let x = 0; x <= width; x += 5) {
+      // Add a little wobble based on mouse X
+      const wobble = mouse.active
+        ? 6 * Math.sin((x / width) * 2 * Math.PI + mouse.x / 40)
+        : 5 * Math.sin((x / width) * 12 * Math.PI + mousePhase * 1.5);
       const y =
         height / 2 +
-        newAmp * Math.sin((x / width) * 4 * Math.PI + newPhase) +
-        5 * Math.sin((x / width) * 12 * Math.PI + newPhase * 1.5); // add variance
+        mouseAmp * Math.sin((x / width) * 4 * Math.PI + mousePhase) +
+        wobble;
       points.push([x, y]);
     }
 
@@ -57,6 +66,13 @@ export default function OscilloscopeWave() {
         background: "linear-gradient(180deg, #9A9493 0%, #635E5D 100%)",
         boxShadow: "0 0 24px 2px #222 inset, 0 0 8px 2px #fff inset",
       }}
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = Math.max(0, Math.min(300, e.clientX - rect.left));
+        const y = Math.max(0, Math.min(150, e.clientY - rect.top));
+        setMouse({ x, y, active: true });
+      }}
+      onMouseLeave={() => setMouse({ x: 150, y: 75, active: false })}
     >
       <svg
         viewBox="0 0 300 150"

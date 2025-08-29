@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 const prompts = [
   "SRV's biting bridge pickup tone",
   "Heavy riffs with clarity",
-  "Jimi Hendrix's punchy rhythm-lead sound",
+  "Jimi Hendrix punchy lead-rhythm",
   "Gritty blues with a sweet top end",
-  "Clean and articulate jazz tones",
+  "Warm and articulate jazz tones",
 ];
 
 export default function ChatTypingAnimation() {
