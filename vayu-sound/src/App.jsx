@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "./components/ui/button";
 import "./App.css";
 import PickupAnimation from "./components/ui/animations/pickup-animation";
@@ -51,6 +51,33 @@ export default function LandingPage() {
     }
   }, []);
 
+  // Carousel state
+  const carouselImages = [
+    "0dccc9cc42b1c4bd2d01dfe33ad2ee90.jpg",
+    "36.jpg",
+    "86d4fbe52a75ae28754fb24d6715a32ecad8a420.jpeg",
+    "pickupS_54.webp",
+    "strat-sixty-four-main_square.jpg",
+  ];
+  const [carouselIdx, setCarouselIdx] = useState(0);
+  const handlePrev = () =>
+    setCarouselIdx((i) => (i === 0 ? carouselImages.length - 1 : i - 1));
+  const handleNext = () =>
+    setCarouselIdx((i) => (i === carouselImages.length - 1 ? 0 : i + 1));
+  const handleDot = (i) => setCarouselIdx(i);
+  // Helper to get 3 images centered on carouselIdx
+  const getVisibleImages = () => {
+    const len = carouselImages.length;
+    if (len < 3) return carouselImages;
+    const prev = (carouselIdx - 1 + len) % len;
+    const next = (carouselIdx + 1) % len;
+    return [
+      carouselImages[prev],
+      carouselImages[carouselIdx],
+      carouselImages[next],
+    ];
+  };
+
   return (
     <div className="w-screen h-screen overflow-x-hidden scroll-smooth">
       {/* Header */}
@@ -73,7 +100,7 @@ export default function LandingPage() {
       {/* Hero / Unicorn Embed */}
       <section
         id="hero"
-        className="h-screen w-full relative flex items-center justify-center bg-gradient-to-b from-transparen to-black"
+        className="h-screen w-full relative flex flex-col items-center justify-center bg-gradient-to-b from-transparen to-black"
       >
         {/* Black gradient overlay for blending */}
         <div
@@ -83,62 +110,132 @@ export default function LandingPage() {
               "linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.3) 90%, rgba(0,0,0,1) 100%)",
           }}
         />
-        {/* Centered header text */}
-        <div
-          className="flex flex-col absolute items-center justify-center"
-          style={{ top: "15%" }}
+
+        {/* Hero / Unicorn Embed */}
+        <section
+          id="hero"
+          className="h-screen w-full relative flex flex-col items-center justify-center bg-gradient-to-b from-transparent to-black"
         >
-          <h1 className="font-taviraj text-white inset-0 flex  justify-center drop-shadow-lg">
-            <span className="vayu">
-              va<span>̄</span>yu
-            </span>
-          </h1>
-          <h2 className=" inset-0 flex self-end  text-white font-overpass-mono  drop-shadow-l tracking-widest">
-            sound
-          </h2>
-        </div>
+          {/* Unicorn Studio as full background */}
+          <div
+            data-us-project="qq6jK4OOsZqYtiI9bRnr"
+            className="absolute inset-0 w-full h-full z-0"
+            style={{ pointerEvents: "none" }}
+          ></div>
+          {/* Black gradient overlay for blending */}
+          <div
+            className="absolute inset-0 z-10 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.3) 97%, rgba(0,0,0,1) 100%)",
+            }}
+          />
+          {/* All hero content stacked above */}
+          <div
+            className="relative z-20 flex flex-col items-center justify-center w-full gap-8"
+            style={{ marginTop: "-2rem" }}
+          >
+            <div className="flex flex-col items-center justify-center">
+              <h1 className="font-taviraj text-white flex drop-shadow-lg">
+                <span className="vayu">
+                  va<span>̄</span>yu
+                </span>
+              </h1>
+              <h2 className="flex self-end text-white font-overpass-mono drop-shadow-l tracking-widest">
+                sound
+              </h2>
+            </div>
+            <p className="font-taviraj tagline justify-center text-pink-50 text-lg">
+              Custom, handwound guitar pickups.
+            </p>
 
-        <p className="absolute font-work-sans tagline justify-center text-pink-50 mt-40">
-          Custom, handwound guitar pickups.
-        </p>
-
-        <div
-          className="hero-cta-flex flex flex-row justify-center items-center absolute gap-10"
-          style={{ bottom: "25%" }}
-        >
-          <a href="#quiz">
-            <Button className="text-white font- h-14 cta hover:opacity-75 hover:text-white">
-              Find your tone
-            </Button>
-          </a>
-          <a href="#about">
-            <Button className="text-white font-work-sans h-14 cta hover:opacity-75 hover:text-white">
-              About us
-            </Button>
-          </a>
-        </div>
-
-        <div
-          data-us-project="qq6jK4OOsZqYtiI9bRnr"
-          style={{ width: "100%", height: "100%" }}
-        ></div>
+            <div className="hero-cta-flex flex flex-row justify-center items-center gap-10">
+              <a href="#quiz">
+                <Button className="text-white font- h-14 cta hover:opacity-75 hover:text-white">
+                  Shop now
+                </Button>
+              </a>
+            </div>
+            <div className="w-full flex flex-col items-center justify-center">
+              <div
+                className="relative flex items-center justify-center"
+                style={{ height: "140px", width: "660px", maxWidth: "100%" }}
+              >
+                <button
+                  className="absolute top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/60 text-white rounded-full p-2 z-20"
+                  style={{ border: "none", left: "-3rem" }}
+                  onClick={handlePrev}
+                  aria-label="Previous image"
+                >
+                  <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
+                    <path
+                      d="M15 19l-7-7 7-7"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+                <div className="flex gap-6 items-center justify-center w-full">
+                  {getVisibleImages().map((img, idx) => (
+                    <img
+                      key={img}
+                      src={`/src/assets/pickups/${img}`}
+                      alt={`Pickup demo ${img}`}
+                      className={`rounded-xl shadow-lg border border-gray-700 object-cover transition-all duration-500 ${idx === 1 ? "scale-105 z-10" : "opacity-80"}`}
+                      style={{
+                        width: "200px",
+                        height: "130px",
+                        background: "transparent",
+                        flex: "0 0 auto",
+                      }}
+                    />
+                  ))}
+                </div>
+                <button
+                  className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/60 text-white rounded-full p-2 z-20"
+                  style={{ border: "none", right: "-3rem" }}
+                  onClick={handleNext}
+                  aria-label="Next image"
+                >
+                  <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
+                    <path
+                      d="M9 5l7 7-7 7"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
-
       {/* Quiz Section */}
       <section
         id="quiz"
-        className="h-screen flex items-center justify-center bg-gradient-to-b from-black via-gray-600 to-black text-white"
+        className="min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-blue-400 text-white px-4 sm:px-8 animate-fadeIn"
       >
-        <div className="max-w-2xl text-center px-6">
+        <div className="max-w-5xl w-full text-center font-work-sans">
           <h2 className="text-5xl mb-12 tracking-wide drop-shadow-md font-taviraj">
-            Find your sound
+            Find Your Tone
           </h2>
-          <p className="text-lg mb-6 font-work-sans">
-            Take our short quiz to discover your personalized sound experience.
-          </p>
-          <button className="px-6 py-3 bg-white text-black rounded-xl font-semibold shadow-lg hover:bg-gray-200 transition">
-            Start Quiz
-          </button>
+          <div className="text-sm opacity-80 w-full items-center justify-center mx-auto my-12">
+            <p>
+              Take our quick quiz to discover the perfect Vāyu pickups for your
+              guitar. Answer a few questions about your playing style and tonal
+              preferences, and we'll recommend the ideal pickups to elevate your
+              musical expression.
+            </p>
+          </div>
+          <a href="#about">
+            <Button className="text-white font-work-sans h-14 cta hover:opacity-75 hover:text-white">
+              Start Quiz
+            </Button>
+          </a>
         </div>
       </section>
 

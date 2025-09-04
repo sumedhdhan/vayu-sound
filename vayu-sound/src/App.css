@@ -8,11 +8,6 @@
   padding: 2em;
 }
 
-.header-logo {
-  font-family: "Taviraj", serif;
-  font-size: 1.5em;
-}
-
 @media screen and (max-width: 600px) {
   .hero-cta-flex {
     flex-direction: column;
@@ -35,10 +30,6 @@
   .cta {
     font-size: 1.5em;
   }
-
-  .tagline {
-    margin-top: 7em;
-  }
 }
 
 .cta {
@@ -56,6 +47,8 @@
 
 .vayu {
   font-family: "Taviraj", serif;
+  margin: 0;
+  padding: 0;
 }
 
 .vayu span {
