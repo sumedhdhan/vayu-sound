@@ -127,7 +127,7 @@ export default function LandingPage() {
             className="absolute inset-0 z-10 pointer-events-none"
             style={{
               background:
-                "linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.3) 97%, rgba(0,0,0,1) 100%)",
+                "linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.3) 90%, rgba(0,0,0,1) 100%)",
             }}
           />
           {/* All hero content stacked above */}
@@ -217,7 +217,7 @@ export default function LandingPage() {
       {/* Quiz Section */}
       <section
         id="quiz"
-        className="min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-blue-400 text-white px-4 sm:px-8 animate-fadeIn"
+        className="min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-slate-700 text-white px-4 sm:px-8 animate-fadeIn"
       >
         <div className="max-w-5xl w-full text-center font-work-sans">
           <h2 className="text-5xl mb-12 tracking-wide drop-shadow-md font-taviraj">
@@ -242,7 +242,7 @@ export default function LandingPage() {
       {/* About Section */}
       <section
         id="about"
-        className="min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-blue-400 text-white px-4 sm:px-8 animate-fadeIn"
+        className="min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-700 to-blue-950 text-white px-4 sm:px-8 animate-fadeIn"
       >
         <div className="max-w-5xl w-full text-center font-work-sans">
           <h2 className="text-5xl mb-12 tracking-wide drop-shadow-md font-taviraj">
