@@ -100,7 +100,7 @@ export default function LandingPage() {
       {/* Hero / Unicorn Embed */}
       <section
         id="hero"
-        className="h-screen w-full relative flex flex-col items-center justify-center bg-gradient-to-b from-transparen to-black"
+        className="h-screen w-full relative flex flex-col items-center justify-center bg-gradient-to-b from-transparen to-black z-0"
       >
         {/* Black gradient overlay for blending */}
         <div
@@ -114,7 +114,7 @@ export default function LandingPage() {
         {/* Hero / Unicorn Embed */}
         <section
           id="hero"
-          className="h-screen w-full relative flex flex-col items-center justify-center bg-gradient-to-b from-transparent to-black"
+          className="h-screen w-full relative flex flex-col items-center justify-center bg-gradient-to-b from-transparent to-black z-0"
         >
           {/* Unicorn Studio as full background */}
           <div
@@ -132,7 +132,7 @@ export default function LandingPage() {
           />
           {/* All hero content stacked above */}
           <div
-            className="relative z-20 flex flex-col items-center justify-center w-full gap-8"
+            className="relative z-0 flex flex-col items-center justify-center w-full gap-8"
             style={{ marginTop: "-2rem" }}
           >
             <div className="flex flex-col items-center justify-center">
@@ -183,7 +183,9 @@ export default function LandingPage() {
                       key={img}
                       src={`/src/assets/pickups/${img}`}
                       alt={`Pickup demo ${img}`}
-                      className={`rounded-xl shadow-lg border border-gray-700 object-cover transition-all duration-500 ${idx === 1 ? "scale-105 z-10" : "opacity-80"}`}
+                      className={`rounded-xl shadow-lg border border-gray-700 object-cover transition-all duration-500 ${
+                        idx === 1 ? "scale-105 z-10" : "opacity-80"
+                      }`}
                       style={{
                         width: "200px",
                         height: "130px",
