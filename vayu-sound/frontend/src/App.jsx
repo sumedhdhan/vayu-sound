@@ -80,9 +80,26 @@ export default function LandingPage() {
   };
 
   const handleQuizSubmit = async (payload) => {
-    // TODO: Send payload to backend/LLM endpoint when ready
-    console.log("Submitting quiz to LLM:", payload);
+    try {
+      const res = await fetch("http://localhost:5000/api/quiz", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        throw new Error(`Server error: ${res.status}`);
+      }
+
+      const data = await res.json();
+      console.log("Pickup specs from backend:", data);
+
+      // TODO: You can later show these specs in a UI modal or confirmation page
+    } catch (err) {
+      console.error("Error submitting quiz:", err);
+    }
   };
+
 
   return (
     <div className="w-screen h-screen overflow-x-hidden scroll-smooth">
