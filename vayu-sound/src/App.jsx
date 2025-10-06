@@ -81,7 +81,7 @@ export default function LandingPage() {
   return (
     <div className="w-screen h-screen overflow-x-hidden scroll-smooth">
       {/* Header */}
-      <header className="fixed top-0 left-0 z-10 w-full flex justify-between items-center px-8 py-4 bg-black/50 backdrop-blur-md text-white">
+      <header className="fixed top-0 left-0 z-10 w-full flex justify-between items-center px-8 py-3 bg-black/50 backdrop-blur-md text-white">
         <a href="#hero" className="header-logo cursor-pointer hover:opacity-75">
           <span className="vayu">
             va<span>̄</span>yu
@@ -132,22 +132,26 @@ export default function LandingPage() {
           />
           {/* All hero content stacked above */}
           <div
-            className="relative z-0 flex flex-col items-center justify-center w-full gap-8"
+            className="relative z-0 flex flex-col items-center justify-center w-full gap-8 text-white"
             style={{ marginTop: "-2rem" }}
           >
             <div className="flex flex-col items-center justify-center">
-              <h1 className="font-taviraj text-white flex drop-shadow-lg">
+              <h1 className="font-taviraj flex drop-shadow-lg">
                 <span className="vayu">
                   va<span>̄</span>yu
                 </span>
               </h1>
-              <h2 className="flex self-end text-white font-overpass-mono drop-shadow-l tracking-widest">
+              <h2 className="flex self-end font-overpass-mono drop-shadow-lg tracking-widest">
                 sound
               </h2>
             </div>
-            <p className="font-taviraj tagline justify-center text-pink-50 text-lg">
-              Custom, handwound guitar pickups.
-            </p>
+            <div className="flex items-center justify-center w-full gap-4 px-4">
+              <hr className="w-24 border-t border-gray-400 opacity-40" />
+              <p className="font-taviraj tagline text-lg text-center whitespace-nowrap mx-2">
+                Custom, handwound guitar pickups.
+              </p>
+              <hr className="w-24 border-t border-gray-400 opacity-40" />
+            </div>
 
             <div className="hero-cta-flex flex flex-row justify-center items-center gap-10">
               <a href="#quiz">
@@ -225,7 +229,7 @@ export default function LandingPage() {
           <h2 className="text-5xl mb-12 tracking-wide drop-shadow-md font-taviraj">
             Find Your Tone
           </h2>
-          <div className="text-sm opacity-80 w-full items-center justify-center mx-auto my-12">
+          <div className="text-sm opacity-80 w-2/3 items-center justify-center mx-auto my-12">
             <p>
               Take our quick quiz to discover the perfect Vāyu pickups for your
               guitar. Answer a few questions about your playing style and tonal
@@ -244,7 +248,7 @@ export default function LandingPage() {
       {/* About Section */}
       <section
         id="about"
-        className="min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-700 to-blue-950 text-white px-4 sm:px-8 animate-fadeIn"
+        className="min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-700 to-gray-800 text-white px-4 sm:px-8 animate-fadeIn"
       >
         <div className="max-w-5xl w-full text-center font-work-sans">
           <h2 className="text-5xl mb-12 tracking-wide drop-shadow-md font-taviraj">
@@ -260,7 +264,7 @@ export default function LandingPage() {
               pickups for your guitar.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             {valueProps.map((item, idx) => (
               <div
                 key={idx}
@@ -281,7 +285,7 @@ export default function LandingPage() {
         </div>
       </section>
       {/* Footer */}
-      <footer className="w-full bg-black/80 text-white py-6 mt-0 flex flex-col items-center justify-center border-t border-gray-700">
+      <footer className="w-full bg-gradient-to-r from-gray-950 to bg-gray-800 text-white py-6 mt-0 flex flex-col items-center justify-center border-t border-gray-700">
         <div className="font-taviraj text-lg mb-2">Vayu Sound</div>
         <div className="flex space-x-6">
           <a

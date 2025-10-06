@@ -41,8 +41,10 @@
 .tagline {
   font-size: 1.5em;
   text-align: center;
-  width: 60%;
+  color: white;
   mix-blend-mode: color-dodge;
+  position: relative;
+  z-index: 20; 
 }
 
 .vayu {
@@ -54,4 +56,8 @@
 .vayu span {
   display: inline-block;
   transform: translateX(-0.25em) translateY(0.05em);
+}
+
+.header-logo{
+  font-size:24px;
 }
