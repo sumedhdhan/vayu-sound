@@ -6,6 +6,7 @@ import "./App.css";
 import PickupAnimation from "./components/ui/animations/pickup-animation";
 import ChatTypingAnimation from "./components/ui/animations/chat-typing-animation";
 import OscilloscopeWave from "./components/ui/animations/sound-wave-animation";
+import Quiz from "./components/quiz/Quiz";
 
 const valueProps = [
   {
@@ -76,6 +77,11 @@ export default function LandingPage() {
       carouselImages[carouselIdx],
       carouselImages[next],
     ];
+  };
+
+  const handleQuizSubmit = async (payload) => {
+    // TODO: Send payload to backend/LLM endpoint when ready
+    console.log("Submitting quiz to LLM:", payload);
   };
 
   return (
@@ -223,25 +229,27 @@ export default function LandingPage() {
       {/* Quiz Section */}
       <section
         id="quiz"
-        className="min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-slate-700 text-white px-4 sm:px-8 animate-fadeIn"
+        className="min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-slate-700 text-white px-4 sm:px-8 py-20 sm:py-24 animate-fadeIn"
       >
-        <div className="max-w-5xl w-full text-center font-work-sans">
-          <h2 className="text-5xl mb-12 tracking-wide drop-shadow-md font-taviraj">
-            Find Your Tone
-          </h2>
-          <div className="text-sm opacity-80 w-2/3 items-center justify-center mx-auto my-12">
-            <p>
-              Take our quick quiz to discover the perfect Vāyu pickups for your
-              guitar. Answer a few questions about your playing style and tonal
-              preferences, and we'll recommend the ideal pickups to elevate your
-              musical expression.
+        <div className="max-w-5xl w-full font-work-sans">
+          <div className="text-center mb-8">
+            <h2 className="text-5xl mb-4 tracking-wide drop-shadow-md font-taviraj">
+              Find Your Tone
+            </h2>
+            <p className="text-sm opacity-80 max-w-2xl mx-auto">
+              Take our quick quiz to discover the perfect Vāyu pickups for your guitar.
+              Answer a few questions about your playing style and tonal preferences, and
+              we'll recommend the ideal pickups to elevate your musical expression.
             </p>
           </div>
-          <a href="#about">
-            <Button className="text-white font-work-sans h-14 cta hover:opacity-75 hover:text-white">
-              Start Quiz
-            </Button>
-          </a>
+
+          <div className="relative rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md shadow-2xl max-h-[75vh] overflow-hidden">
+            <div className="overflow-y-auto max-h-[75vh] px-6 py-8 sm:px-10 sm:py-10 pr-2 pb-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              <Quiz onSubmit={handleQuizSubmit} />
+            </div>
+
+            <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
+          </div>
         </div>
       </section>
 
