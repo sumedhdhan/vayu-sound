@@ -79,27 +79,6 @@ export default function LandingPage() {
     ];
   };
 
-  const handleQuizSubmit = async (payload) => {
-    try {
-      const res = await fetch("http://localhost:5000/api/quiz", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!res.ok) {
-        throw new Error(`Server error: ${res.status}`);
-      }
-
-      const data = await res.json();
-      console.log("Pickup specs from backend:", data);
-
-      // TODO: You can later show these specs in a UI modal or confirmation page
-    } catch (err) {
-      console.error("Error submitting quiz:", err);
-    }
-  };
-
 
   return (
     <div className="w-screen h-screen overflow-x-hidden scroll-smooth">
@@ -262,7 +241,7 @@ export default function LandingPage() {
 
           <div className="relative rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md shadow-2xl max-h-[75vh] overflow-hidden">
             <div className="overflow-y-auto max-h-[75vh] px-6 py-8 sm:px-10 sm:py-10 pr-2 pb-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-              <Quiz onSubmit={handleQuizSubmit} />
+              <Quiz />
             </div>
 
             <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
